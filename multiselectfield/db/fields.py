@@ -54,7 +54,7 @@ class MultiSelectField(models.CharField):
         self.max_choices = kwargs.pop('max_choices', None)
         super(MultiSelectField, self).__init__(*args, **kwargs)
         self.max_length = get_max_length(self.choices, self.max_length)
-	if len(self.validators) == 0:
+	    if len(self.validators) == 0:
             self.validators.append(MaxValueMultiFieldValidator(self.max_length))
         if self.min_choices is not None:
             self.validators.append(MinChoicesValidator(self.min_choices))
